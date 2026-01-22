@@ -21,7 +21,6 @@ This project aims to analyze customer sentiment toward Moroccan banks by process
 ---
 
 ## 🚀 Quick Start
-
 ```bash
 # Clone the repository
 git clone https://github.com/MCJJBA/Bank-Reviews-Morocco.git
@@ -29,71 +28,81 @@ cd Bank-Reviews-Morocco
 
 # Create a virtual environment
 python -m venv env
-source env/bin/activate
+source env/bin/activate  # On Windows use: env\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
+```
 
-# Configure environment variables
-cp .env.example .env
-# Update .env with your credentials
+## 🚀 Installation & Setup
 
-## ⚙️ Apache Airflow Setup & Initialization
+### Prerequisites
+- Python 3.7+
+- pip package manager
 
-Apache Airflow is used to orchestrate and automate the ETL workflows of this project. Follow the steps below to configure Airflow correctly.
+### Installation Steps
 
-### 1️⃣ Install Apache Airflow
-
-It is highly recommended to install Airflow inside a Python virtual environment.
-
+1. **Install Apache Airflow**
 ```bash
-pip install apache-airflow
-2. **Initialize Airflow**  
-   - Run the following command to initialize the Airflow metadata database:
-     ```bash
-     airflow db init
-     ```
+   pip install apache-airflow
+```
 
-3. **Set Up DAGs Folder**  
-   - Create a new folder named `airflow` at your desired location.
-   - Inside `airflow`, create another folder named `Dags` (case-sensitive).
-   - Copy the contents of your repository’s `airflow` folder into the newly created `airflow/Dags` folder.
-   - Your Airflow DAGs should now be in:  
-     `airflow/Dags/`
+2. **Initialize Airflow**
+   
+   Run the following command to initialize the Airflow metadata database:
+```bash
+   airflow db init
+```
 
-4. **Configure Airflow**  
-   - (Optional) Point Airflow to your new DAGs folder by setting the `dags_folder` variable in `airflow.cfg` or via the environment variable:
-     ```bash
-     export AIRFLOW__CORE__DAGS_FOLDER=$(pwd)/airflow/Dags
-     ```
+3. **Set Up DAGs Folder**
+   - Create a new folder named `airflow` at your desired location
+   - Inside `airflow`, create another folder named `dags` (lowercase recommended)
+   - Copy the contents of your repository's `airflow` folder into the newly created `airflow/dags` folder
+   - Your Airflow DAGs should now be in: `airflow/dags/`
 
-5. **Start Airflow**  
-   - Start the Airflow webserver and scheduler in separate terminals:
-     ```bash
-     airflow webserver
-     airflow scheduler
-     ```
-   - Access the Airflow UI at [http://localhost:8080](http://localhost:8080).
+4. **Configure Airflow**
+   
+   (Optional) Point Airflow to your new DAGs folder by setting the `dags_folder` variable in `airflow.cfg` or via environment variable:
+```bash
+   export AIRFLOW__CORE__DAGS_FOLDER=$(pwd)/airflow/dags
+```
+
+5. **Start Airflow**
+   
+   Start the Airflow webserver and scheduler in separate terminals:
+```bash
+   # Terminal 1
+   airflow webserver
+   
+   # Terminal 2
+   airflow scheduler
+```
+   
+   Access the Airflow UI at [http://localhost:8080](http://localhost:8080)
 
 ## 📊 Visualizations & Dashboard
-### 📊 Dashboard Overview
+
+### Dashboard Overview
 
 The interactive dashboard provides comprehensive analytical insights through:
-- real-time sentiment analysis of customer reviews,
-- comparative evaluation of bank performance,
-- geographic distribution of customer feedback across regions,
-- analysis of customer satisfaction and service quality trends,
-- topic-based insights segmented by bank and region,
-- monitoring of review volume and user activity patterns,
-- visualization of sentiment distribution by bank,
-- geographic satisfaction heatmaps,
-- topic modeling results,
-- time-series analysis of review trends,
-- review volume by agency location,
-- and rating distribution charts.
-My Dashboard : (https://lookerstudio.google.com/u/0/reporting/c39b3ae9-5983-49ea-9340-c1c7adbf816b)
 
-# AUTHOR
+- Real-time sentiment analysis of customer reviews
+- Comparative evaluation of bank performance
+- Geographic distribution of customer feedback across regions
+- Analysis of customer satisfaction and service quality trends
+- Topic-based insights segmented by bank and region
+- Monitoring of review volume and user activity patterns
+- Visualization of sentiment distribution by bank
+- Geographic satisfaction heatmaps
+- Topic modeling results
+- Time-series analysis of review trends
+- Review volume by agency location
+- Rating distribution charts
+
+**View Dashboard:** [Looker Studio Dashboard](https://lookerstudio.google.com/u/0/reporting/c39b3ae9-5983-49ea-9340-c1c7adbf816b)
+
+## 👤 Author
+
 [@MouadChafiki](https://github.com/MCJJBA)
 
 
